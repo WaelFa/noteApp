@@ -64,19 +64,13 @@ function read() {
    
 }
 
-read()
-
-if (process.argv[2] === "add") {
-    add()
-}
-// console.log(typeof process.argv[2])
-
-if (process.argv[2] === "list") {
-    list()
-}
-
-// let student = {  
-//     Title: "student",
-//     Body: "hello"
-// }
+switch (process.argv[2]) {
+    case '--help': help(); break;
+    case 'list': list(); break;
+    case 'add': add(); break;
+    case 'read': read(); break;
+    default: help(); break;
+  }
+  
+  if (process.argv.length < 3) help();
 
